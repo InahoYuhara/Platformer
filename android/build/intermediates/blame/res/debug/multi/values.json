@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/inaho/Documents/PAM/RI/Platformer/android/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+        "outputFile": "G:\\PAM\\RI\\PlatformerBaseProject\\android\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 98
                 },
                 "from": {
-                    "file": "/Users/inaho/Documents/PAM/RI/Platformer/android/res/values/strings.xml",
+                    "file": "G:\\PAM\\RI\\PlatformerBaseProject\\android\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -31,7 +31,7 @@
                     "endOffset": 561
                 },
                 "from": {
-                    "file": "/Users/inaho/Documents/PAM/RI/Platformer/android/res/values/styles.xml",
+                    "file": "G:\\PAM\\RI\\PlatformerBaseProject\\android\\res\\values\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
