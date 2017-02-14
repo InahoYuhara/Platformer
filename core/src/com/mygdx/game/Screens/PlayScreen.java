@@ -54,6 +54,7 @@ public class PlayScreen implements Screen {
     public PlayScreen(Platformer game){
         this.game = game;
 
+        //Camera
         gameCam = new OrthographicCamera();
         gamePort = new FitViewport(Platformer.V_WIDTH,Platformer.V_HEIGHT,gameCam);
         hud = new Hud(game.batch);
