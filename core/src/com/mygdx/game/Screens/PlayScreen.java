@@ -54,19 +54,22 @@ public class PlayScreen implements Screen {
     public PlayScreen(Platformer game){
         this.game = game;
 
+        //Camera
         gameCam = new OrthographicCamera();
-        gamePort = new FitViewport(Platformer.V_WIDTH,Platformer.V_HEIGHT,gameCam);
+        gamePort = new FitViewport(Platformer.V_WIDTH / Platformer.PPM,Platformer.V_HEIGHT / Platformer.PPM,gameCam);
         hud = new Hud(game.batch);
 
         mapLoader =  new TmxMapLoader();
         map = mapLoader.load("testMap.tmx");
-        renderer = new OrthogonalTiledMapRenderer(map);
+        renderer = new OrthogonalTiledMapRenderer(map, 1f /Platformer.PPM);
 
         gameCam.position.set(gamePort.getWorldWidth() / 2,gamePort.getWorldHeight() / 2, 0);
 
+        //world creation
         world = new World(new Vector2(0, -10), true);
+        //allow debug lines
         b2dr = new Box2DDebugRenderer();
-
+        //player creation
         player = new Mario(world);
 
         BodyDef bdef = new BodyDef();
@@ -81,11 +84,11 @@ public class PlayScreen implements Screen {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2), (rect.getY() + rect.getHeight() / 2));
+            bdef.position.set((rect.getX() + rect.getWidth() / 2)/Platformer.PPM, (rect.getY() + rect.getHeight() / 2)/Platformer.PPM);
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2 , rect.getHeight() / 2);
+            shape.setAsBox(rect.getWidth() / 2/Platformer.PPM , rect.getHeight() / 2/Platformer.PPM);
             fdef.shape = shape;
             body.createFixture(fdef);
 
@@ -95,11 +98,11 @@ public class PlayScreen implements Screen {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2), (rect.getY() + rect.getHeight() / 2));
+            bdef.position.set((rect.getX() + rect.getWidth() / 2)/Platformer.PPM, (rect.getY() + rect.getHeight() / 2)/Platformer.PPM);
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2 , rect.getHeight() / 2);
+            shape.setAsBox(rect.getWidth() / 2/Platformer.PPM , rect.getHeight() / 2/Platformer.PPM);
             fdef.shape = shape;
             body.createFixture(fdef);
 
@@ -109,11 +112,11 @@ public class PlayScreen implements Screen {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2), (rect.getY() + rect.getHeight() / 2));
+            bdef.position.set((rect.getX() + rect.getWidth() / 2)/Platformer.PPM, (rect.getY() + rect.getHeight() / 2)/Platformer.PPM);
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2 , rect.getHeight() / 2);
+            shape.setAsBox(rect.getWidth() / 2/Platformer.PPM , rect.getHeight() / 2/Platformer.PPM);
             fdef.shape = shape;
             body.createFixture(fdef);
 
@@ -123,11 +126,11 @@ public class PlayScreen implements Screen {
             Rectangle rect = ((RectangleMapObject) object).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX() + rect.getWidth() / 2), (rect.getY() + rect.getHeight() / 2));
+            bdef.position.set((rect.getX() + rect.getWidth() / 2)/Platformer.PPM, (rect.getY() + rect.getHeight() / 2)/Platformer.PPM);
 
             body = world.createBody(bdef);
 
-            shape.setAsBox(rect.getWidth() / 2 , rect.getHeight() / 2);
+            shape.setAsBox(rect.getWidth() / 2/Platformer.PPM , rect.getHeight() / 2/Platformer.PPM);
             fdef.shape = shape;
             body.createFixture(fdef);
 
@@ -144,7 +147,7 @@ public class PlayScreen implements Screen {
     public void HandleInput(float delta){
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.UP)){
-            player.b2Body.applyLinearImpulse(new Vector2(0,16f),player.b2Body.getWorldCenter(), true);
+            player.b2Body.applyLinearImpulse(new Vector2(0,4f),player.b2Body.getWorldCenter(), true);
         }
 
     }
