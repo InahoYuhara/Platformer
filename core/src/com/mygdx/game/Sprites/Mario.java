@@ -24,13 +24,13 @@ public class Mario extends Sprite {
 
     public void defineMario(){
         BodyDef bdef = new BodyDef();
-        bdef.position.set(32,32);
+        bdef.position.set(32/Platformer.PPM,32/Platformer.PPM);
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2Body = world.createBody(bdef);
 
         FixtureDef fdef = new FixtureDef();
         CircleShape shape = new CircleShape();
-        shape.setRadius(5);
+        shape.setRadius(5/Platformer.PPM);
 
         fdef.shape = shape;
         b2Body.createFixture(fdef);
