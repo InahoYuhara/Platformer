@@ -4,23 +4,40 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTile;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.game.Platformer;
 
 /**
  * Created by inaho on 2017-02-15.
  */
 
 public abstract class InteractiveTileObject {
-    private World world;
-    private TiledMap map;
-    private TiledMapTile tile;
-    private Rectangle bounds;
-    private Body body;
+    protected World world;
+    protected TiledMap map;
+    protected TiledMapTile tile;
+    protected Rectangle bounds;
+    protected Body body;
 
 
     public InteractiveTileObject(World world, TiledMap map, Rectangle bounds){
         this.world = world;
         this.map = map;
         this.bounds = bounds;
+
+        BodyDef bdef = new BodyDef();
+        FixtureDef fdef = new FixtureDef();
+        PolygonShape shape = new PolygonShape();
+
+        bdef.type = BodyDef.BodyType.StaticBody;
+        bdef.position.set((bounds.getX() + bounds.getWidth() / 2)/ Platformer.PPM, (bounds.getY() + bounds.getHeight() / 2)/Platformer.PPM);
+
+        body = world.createBody(bdef);
+
+        shape.setAsBox(bounds.getWidth() / 2/Platformer.PPM , bounds.getHeight() / 2/Platformer.PPM);
+        fdef.shape = shape;
+        body.createFixture(fdef);
     }
 }
