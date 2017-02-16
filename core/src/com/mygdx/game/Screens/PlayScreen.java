@@ -29,6 +29,8 @@ import com.mygdx.game.Scenes.Hud;
 import com.mygdx.game.Sprites.Mario;
 import com.mygdx.game.Tools.B2WorldCreator;
 
+import static com.mygdx.game.Sprites.Mario.State.JUMPING;
+
 /**
  * Created by antoine on 2017-02-13.
  */
@@ -95,7 +97,7 @@ public class PlayScreen implements Screen {
 
     public void HandleInput(float delta){
 
-        if(Gdx.input.isKeyJustPressed(Input.Keys.UP)){
+        if(Gdx.input.isKeyJustPressed(Input.Keys.UP) && player.getState() != JUMPING){
             player.b2Body.applyLinearImpulse(new Vector2(0,4f),player.b2Body.getWorldCenter(), true);
         }
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2Body.getLinearVelocity().x <= 2){
@@ -143,6 +145,18 @@ public class PlayScreen implements Screen {
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
 
+        if(gameOver()){
+            game.setScreen(new GameOverScreen(game));
+            dispose();
+        }
+
+    }
+
+    public boolean gameOver(){
+        if(player.currentState == Mario.State.DEAD && player.getStateTimer() > 0.3f){
+            return true;
+        }
+        return false;
     }
 
     @Override

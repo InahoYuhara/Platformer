@@ -1,14 +1,18 @@
 [
     {
-        "merged": "/Users/inaho/Documents/PAM/RI/Platformer/android/build/intermediates/res/merged/debug/drawable-xhdpi/ic_launcher.png",
-        "source": "/Users/inaho/Documents/PAM/RI/Platformer/android/res/drawable-xhdpi/ic_launcher.png"
+        "merged": "G:\\Users\\inaho\\Documents\\PAM\\RI\\Platformer\\G:\\PAM\\RI\\Platformer\\android\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
+        "source": "G:\\Users\\inaho\\Documents\\PAM\\RI\\Platformer\\G:\\PAM\\RI\\Platformer\\android\\res\\drawable-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "/Users/inaho/Documents/PAM/RI/Platformer/G:\\PAM\\RI\\PlatformerBaseProject\\android\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
-        "source": "/Users/inaho/Documents/PAM/RI/Platformer/G:\\PAM\\RI\\PlatformerBaseProject\\android\\res\\drawable-xhdpi\\ic_launcher.png"
+        "merged": "G:\\Users\\inaho\\Documents\\PAM\\RI\\Platformer\\android\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
+        "source": "G:\\Users\\inaho\\Documents\\PAM\\RI\\Platformer\\android\\res\\drawable-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "/Users/inaho/Documents/PAM/RI/Platformer/G:\\PAM\\RI\\Platformer\\android\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
-        "source": "/Users/inaho/Documents/PAM/RI/Platformer/G:\\PAM\\RI\\Platformer\\android\\res\\drawable-xhdpi\\ic_launcher.png"
+        "merged": "G:\\Users\\inaho\\Documents\\PAM\\RI\\Platformer\\G:\\PAM\\RI\\PlatformerBaseProject\\android\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
+        "source": "G:\\Users\\inaho\\Documents\\PAM\\RI\\Platformer\\G:\\PAM\\RI\\PlatformerBaseProject\\android\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "G:\\PAM\\RI\\Platformer\\android\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher.png",
+        "source": "G:\\PAM\\RI\\Platformer\\android\\res\\drawable-xhdpi\\ic_launcher.png"
     }
 ]

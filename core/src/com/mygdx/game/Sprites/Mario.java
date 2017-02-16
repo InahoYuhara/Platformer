@@ -9,6 +9,7 @@ import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.BooleanArray;
 import com.mygdx.game.Platformer;
 import com.mygdx.game.Screens.PlayScreen;
 
@@ -17,9 +18,10 @@ import com.mygdx.game.Screens.PlayScreen;
  */
 
 public class Mario extends Sprite {
-    public enum State {FALLING, JUMPING, STANDING, RUNNING};
+    public enum State {FALLING, JUMPING, STANDING, RUNNING, DEAD};
     public State currentState;
     public State previousState;
+    public Boolean marioIsDead;
 
     public World world;
     public Body b2Body;
@@ -40,6 +42,7 @@ public class Mario extends Sprite {
         previousState = State.STANDING;
         stateTimer = 0;
         runningRight = true;
+        marioIsDead = false;
 
         Array<TextureRegion> frames = new Array<TextureRegion>();
         for(int i = 1; i < 4; i++)
@@ -102,13 +105,23 @@ public class Mario extends Sprite {
 
     }
     public State getState(){
-        if(b2Body.getLinearVelocity().y > 0 || (b2Body.getLinearVelocity().y < 0 && previousState == State.JUMPING))
+        if(b2Body.getPosition().y < 0)
+            return State.DEAD;
+        else if(b2Body.getLinearVelocity().y > 0 || (b2Body.getLinearVelocity().y < 0 && previousState == State.JUMPING))
             return State.JUMPING;
         else if(b2Body.getLinearVelocity().y < 0)
             return State.FALLING;
         else if(b2Body.getLinearVelocity().x != 0)
             return State.RUNNING;
         else return State.STANDING;
+    }
+
+    public Boolean isDead(){
+        return marioIsDead;
+    }
+
+    public float getStateTimer(){
+        return stateTimer;
     }
 
     public void defineMario(){
