@@ -31,8 +31,8 @@ public class GameOverScreen implements Screen{
         viewport = new FitViewport(Platformer.V_WIDTH,Platformer.V_HEIGHT, new OrthographicCamera());
         stage =  new Stage(viewport,((Platformer)game).batch);
 
-        Label.LabelStyle font = new Label.LabelStyle(new BitmapFont(), Color.RED);
-        Label.LabelStyle font2 = new Label.LabelStyle(new BitmapFont(), Color.WHITE);
+        Label.LabelStyle font = new Label.LabelStyle(new BitmapFont(), Color.PURPLE);
+        Label.LabelStyle font2 = new Label.LabelStyle(new BitmapFont(), Color.GRAY);
 
         Table table = new Table();
         table.center();

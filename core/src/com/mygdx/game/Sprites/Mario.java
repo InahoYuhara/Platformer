@@ -36,7 +36,7 @@ public class Mario extends Sprite {
 
     public Mario(World world, PlayScreen screen){
 
-        super(screen.getAtlas().findRegion("little_mario"));
+        super(screen.getAtlas().findRegion("hoodleidle"));
         this.world = world;
         currentState = State.STANDING;
         previousState = State.STANDING;
@@ -45,19 +45,19 @@ public class Mario extends Sprite {
         marioIsDead = false;
 
         Array<TextureRegion> frames = new Array<TextureRegion>();
-        for(int i = 1; i < 4; i++)
+        for(int i = 1; i < 5; i++)
         {
-            frames.add(new TextureRegion(getTexture(), i * 16, 0, 16, 16));
+            frames.add(new TextureRegion(getTexture(), i * 32, 0, 32, 32));
         }
         marioRun = new Animation(0.1f, frames);
         frames.clear();
         for(int i = 4; i < 6; i++)
         {
-            frames.add(new TextureRegion(getTexture(), i * 16, 0, 16, 16));
+            frames.add(new TextureRegion(getTexture(), i * 32, 0, 32, 32));
         }
         marioJump = new Animation(0.1f, frames);
 
-        marioStand = new TextureRegion(getTexture(), 0, 0, 16, 16);
+        marioStand = new TextureRegion(getTexture(), 0, 0, 32, 32);
 
         defineMario();
         setBounds(0, 0, 16/Platformer.PPM, 16/Platformer.PPM);
@@ -90,11 +90,11 @@ public class Mario extends Sprite {
                 region = marioStand;
                 break;
         }
-        if((b2Body.getLinearVelocity().x < 0 || !runningRight) && !region.isFlipX()){
+        if((b2Body.getLinearVelocity().x < 0 || !runningRight) && region.isFlipX()){
             region.flip(true,false);
             runningRight = false;
         }
-        else if((b2Body.getLinearVelocity().x > 0 || runningRight) && region.isFlipX()){
+        else if((b2Body.getLinearVelocity().x > 0 || runningRight) && !region.isFlipX()){
             region.flip(true,false);
             runningRight = true;
         }

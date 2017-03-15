@@ -59,7 +59,7 @@ public class PlayScreen implements Screen {
 
     public PlayScreen(Platformer game){
 
-        atlas = new TextureAtlas("Mario_and_enemies.pack");
+        atlas = new TextureAtlas("Hoodle.pack");
 
         this.game = game;
 
