@@ -69,7 +69,7 @@ public class PlayScreen implements Screen {
         hud = new Hud(game.batch);
 
         mapLoader =  new TmxMapLoader();
-        map = mapLoader.load("level1.tmx");
+        map = mapLoader.load("level2.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, 1f /Platformer.PPM);
 
         gameCam.position.set(gamePort.getWorldWidth() / 2,gamePort.getWorldHeight() / 2, 0);
@@ -101,10 +101,10 @@ public class PlayScreen implements Screen {
             player.b2Body.applyLinearImpulse(new Vector2(0,4f),player.b2Body.getWorldCenter(), true);
         }
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2Body.getLinearVelocity().x <= 2){
-            player.b2Body.applyLinearImpulse(new Vector2(0.1f,0),player.b2Body.getWorldCenter(),true);
+            player.b2Body.applyLinearImpulse(new Vector2(0.06f,0),player.b2Body.getWorldCenter(),true);
         }
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT)&& player.b2Body.getLinearVelocity().x <= 2){
-            player.b2Body.applyLinearImpulse(new Vector2(-0.1f,0),player.b2Body.getWorldCenter(),true);
+            player.b2Body.applyLinearImpulse(new Vector2(-0.06f,0),player.b2Body.getWorldCenter(),true);
         }
 
     }
